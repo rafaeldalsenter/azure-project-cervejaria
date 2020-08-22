@@ -14,8 +14,6 @@ Custos estimados:
 - Contâiner register: $20 no plano Basic (Leste dos EUA).
 - AKS: $291 par ao cluster.
 
------
-
 ## Storages
 
 Utilizaremos o **Azure Storage** para as imagens com tamanho superior a 1 Mb, arquivos estáticos do site e imagens de até 1Mb. Os dois últimos serão distribuidos utilizando **CDN Network**.
@@ -25,8 +23,6 @@ Utilizaremos o **Azure Storage** para as imagens com tamanho superior a 1 Mb, ar
 Custos estimados:
 - Azure Storage com GRS: $12 por 30Gb de armazenamento + custos mínimos de Gravação/leitura (Leste dos EUA  - 25% de economia em relação a Brasil).
 - CDN: $0,32 por Gb.
-
------
 
 ## Databases
 
