@@ -1,5 +1,5 @@
-resource "azurerm_storage_account" "str_ambev" {
-  name                = "cervejariaambev"
+resource "azurerm_storage_account" "str" {
+  name                = "${var.default_name}str"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   tags                = var.tags
@@ -9,8 +9,8 @@ resource "azurerm_storage_account" "str_ambev" {
   account_kind             = "StorageV2"
 }
 
-resource "azurerm_cdn_profile" "cdn_ambev" {
-  name                = "cervejariaambev"
+resource "azurerm_cdn_profile" "cdn" {
+  name                = "${var.default_name}cdn"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   tags                = var.tags

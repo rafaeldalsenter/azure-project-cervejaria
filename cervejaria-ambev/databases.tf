@@ -1,6 +1,6 @@
 
-resource "azurerm_mysql_server" "mysql_instance" {
-  name                = "example-mysqlserver"
+resource "azurerm_mysql_server" "mysql" {
+  name                = "${var.default_name}mysql"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   tags                = var.tags
@@ -20,8 +20,8 @@ resource "azurerm_mysql_server" "mysql_instance" {
   ssl_minimal_tls_version_enforced  = "TLS1_2"
 }
 
-resource "azurerm_redis_cache" "redis_instance" {
-  name                = "example-redis"
+resource "azurerm_redis_cache" "redis" {
+  name                = "${var.default_name}redis"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   tags                = var.tags

@@ -1,9 +1,18 @@
 # Cervejaria Ambev - exemplo de ambiente Azure
 
+<Imagem do Ambiente>
+
 ## App
 
-// TODO Aplicação e load balance
+Para aplicação, o melhor caminho é utilizar Kubernetes. Mesmo a estrutura da aplicação sendo composta por um monolito, temos algumas vantagens:
+- Escalabilidade, onde é mais rápido para subir um Pod da aplicação do que uma máquina virtual.
+- Flexibilidade, por exemplo, se futuramente pensar em separar a aplicação em Microserviços.
 
+Para aplicação utilizaremos **Serviço gerenciado de Kubernetes (AKS)**, **Container registry** para manter as imagens do Contâiner.
+
+Custos estimados:
+- Contâiner register: $20 no plano Basic (Leste dos EUA).
+- AKS: $291 par ao cluster.
 
 -----
 
@@ -21,9 +30,8 @@ Custos estimados:
 
 ## Databases
 
-Utilizaremos o **Serviço gerenciado de MySQL** como banco principal da aplicação e **Serviço gerenciado do Redis** para cache (armazenando as sessões). A capacidade de armazenamento foi estimada nas configurações de uso padrão do Azure.
-
-// TODO justificar pq utilizar Redis
+Utilizaremos o **Serviço gerenciado de MySQL** como banco principal da aplicação e **Serviço gerenciado do Redis** para cache. A capacidade de armazenamento foi estimada nas configurações de uso padrão do Azure.
+- Para as sessões, escolhemos o Redis que armazenará os dados em memória, podendo ser utilizado para cache de outras informações.
 
 Custos estimados:
 - MySQL: $1102 com 4 cores + 100Gb de armazenamento (Leste dos EUA  - 25% de economia em relação a Brasil).

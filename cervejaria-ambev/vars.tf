@@ -5,6 +5,10 @@ variable "tags" {
   }
 }
 
+variable "default_name"{
+  default = "cervejariaambev"
+}
+
 variable "mysql_user" {
   default = "sa"
 }
