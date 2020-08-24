@@ -1,6 +1,6 @@
 # Cervejaria Ambev - exemplo de ambiente Azure
 
-![Diagrama](diagram.png =100x100)
+![Diagrama](diagram.png)
 
 Para proteger a aplicação utilizei a **Rede privada do Azure**, onde será alocado o cluster Kubernetes da aplicação principal e o Container Registry. O banco MySql e o Storage privado poderão ser acessados somente por essa rede.
 
