@@ -11,7 +11,7 @@ Para proteger a aplicação utilizei a **Rede virtual do Azure** (gratuita), ond
 ## App
 
 Para aplicação, optei por um cluster Kubernetes. Mesmo a estrutura da aplicação sendo composta por um monolito, temos algumas vantagens:
-- Fexibilidade, onde é mais rápido para subir um Pod da aplicação do que uma máquina virtual.
+- Flexibilidade, onde é mais rápido para subir um Pod da aplicação do que uma máquina virtual.
 - Escalabilidade, por exemplo, se futuramente pensar em separar a aplicação em Microserviços.
 
 Utilizarei **Serviço gerenciado de Kubernetes (AKS)** e **Container registry** para manter as imagens do Contâiner da aplicação.
@@ -35,7 +35,7 @@ Custos estimados:
 
 **Serviço gerenciado de MySQL** como banco principal da aplicação e **Serviço gerenciado do Redis** para cache. A capacidade de armazenamento foi estimada nas configurações de uso padrão do Azure.
 - Para as sessões, escolhemos o Redis que armazenará os dados em memória, podendo ser utilizado para cache de outras informações posteriormente.
-- O Redis possui uma opção que é possível ser alocado em uma rede privada, porém seu custo fica 4x maior. 
+- O Redis possui uma opção que pode ser alocada em uma rede privada, porém seu custo fica 4x maior. 
 
 Custos estimados:
 - MySQL: $1102 com 4 cores + 100Gb de armazenamento (Leste dos EUA  - 25% de economia em relação a Brasil).
