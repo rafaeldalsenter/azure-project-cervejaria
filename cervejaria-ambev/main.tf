@@ -9,5 +9,3 @@ resource "azurerm_resource_group" "resource" {
   location = "eastus"
   tags     = var.tags
 }
-
-// TODO Configurar os ambientes em private networks

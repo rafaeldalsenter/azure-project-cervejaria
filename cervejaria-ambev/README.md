@@ -1,37 +1,41 @@
 # Cervejaria Ambev - exemplo de ambiente Azure
 
-<Imagem do Ambiente>
+![Diagrama](diagram.png)
+
+Para proteger a aplicação utilizei a **Rede privada do Azure**, onde será alocado o cluster Kubernetes da aplicação principal e o Container Registry. O banco MySql e o Storage privado poderão ser acessados somente por essa rede.
 
 ## App
 
-Para aplicação, o melhor caminho é utilizar Kubernetes. Mesmo a estrutura da aplicação sendo composta por um monolito, temos algumas vantagens:
+Para aplicação, optei por um cluster Kubernetes. Mesmo a estrutura da aplicação sendo composta por um monolito, temos algumas vantagens:
 - Escalabilidade, onde é mais rápido para subir um Pod da aplicação do que uma máquina virtual.
 - Flexibilidade, por exemplo, se futuramente pensar em separar a aplicação em Microserviços.
 
-Para aplicação utilizaremos **Serviço gerenciado de Kubernetes (AKS)**, **Container registry** para manter as imagens do Contâiner.
+Utilizarei **Serviço gerenciado de Kubernetes (AKS)** e **Container registry** para manter as imagens do Contâiner da aplicação.
 
 Custos estimados:
-- Contâiner register: $20 no plano Basic (Leste dos EUA).
-- AKS: $291 par ao cluster.
+- AKS: $291 por cluster.
+- Container registry: $20 no plano Basic (Leste dos EUA).
 
 ## Storages
 
-Utilizaremos o **Azure Storage** para as imagens com tamanho superior a 1 Mb, arquivos estáticos do site e imagens de até 1Mb. Os dois últimos serão distribuidos utilizando **CDN Network**.
+Optado **Azure Storage** para as imagens com tamanho superior a 1 Mb, arquivos estáticos do site e imagens de até 1Mb. Os dois últimos serão distribuidos utilizando **CDN Network**.
 - Todo esse conteúdo não ficará junto com a aplicação, assim se a aplicação escalar ficará mais enxuta.
 - O conteúdo estático do site e imagens de até 1mb utilizarão CDN podendo ter distribuição geográfica, diminuindo a latência (assim podemos escolher a localização Leste dos EUA para Storage, reduzindo o custo).
 
 Custos estimados:
-- Azure Storage com GRS: $12 por 30Gb de armazenamento + custos mínimos de Gravação/leitura (Leste dos EUA  - 25% de economia em relação a Brasil).
+- Azure Storage: $12 por 30Gb de armazenamento + custos mínimos de Gravação/leitura (Leste dos EUA - 25% de economia em relação a Brasil).
 - CDN: $0,32 por Gb.
 
 ## Databases
 
-Utilizaremos o **Serviço gerenciado de MySQL** como banco principal da aplicação e **Serviço gerenciado do Redis** para cache. A capacidade de armazenamento foi estimada nas configurações de uso padrão do Azure.
-- Para as sessões, escolhemos o Redis que armazenará os dados em memória, podendo ser utilizado para cache de outras informações.
+**Serviço gerenciado de MySQL** como banco principal da aplicação e **Serviço gerenciado do Redis** para cache. A capacidade de armazenamento foi estimada nas configurações de uso padrão do Azure.
+- Para as sessões, escolhemos o Redis que armazenará os dados em memória, podendo ser utilizado para cache de outras informações posteriormente.
+- O Redis possui uma opção que é possível ser alocado em uma rede privada, porém seu custo fica 4x maior. 
 
 Custos estimados:
 - MySQL: $1102 com 4 cores + 100Gb de armazenamento (Leste dos EUA  - 25% de economia em relação a Brasil).
 - Redis: $407 com configuração Standard C1 1 Gb.
+
 
 
 
