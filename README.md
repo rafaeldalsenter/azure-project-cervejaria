@@ -22,9 +22,10 @@ Custos estimados:
 
 ## Storages
 
-Optado **Azure Storage** para as imagens com tamanho superior a 1 Mb, arquivos estáticos do site e imagens de até 1Mb. Os dois últimos serão distribuidos utilizando **CDN Network** (utilizando Storage público).
+Optado **Azure Storage** para as imagens com tamanho superior a 1 Mb, arquivos estáticos do site e imagens de até 1Mb. Os dois últimos serão distribuidos utilizando **CDN Network**.
 - Todo esse conteúdo não ficará junto com a aplicação, assim se a aplicação escalar ficará mais enxuta.
 - O conteúdo estático do site e imagens de até 1mb utilizarão CDN podendo ter distribuição geográfica, diminuindo a latência (assim podemos escolher a localização Leste dos EUA para Storage, reduzindo o custo).
+- Há dois Storages no diagrama, o público contendo o conteúdo que será distribuido via CDN, e o privado contendo os arquivos da aplicação.
 
 Custos estimados:
 - Azure Storage: $12 por 30Gb de armazenamento + custos mínimos de Gravação/leitura (Leste dos EUA - 25% de economia em relação a Brasil).
