@@ -1,4 +1,4 @@
-# Cervejaria - projeto de ambiente Azure
+# Projeto de ambiente Azure
 
 Projeto de migração de infra de uma aplicação PHP + MySQL para Azure.
 
